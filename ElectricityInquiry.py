@@ -8,46 +8,62 @@ BUILDINGS = eval("""
          "building":"T1"
     },
     {
+         "buildingid":"1574231833",
+         "building":"T2"
+    },
+    {
          "buildingid":"1574231835",
          "building":"T3"
     },
     {
          "buildingid":"1503975832",
-         "building":"S1一多书院"
+         "building":"S1"
     },
     {
          "buildingid":"1503975890",
-         "building":"S2从文书院"
+         "building":"S2"
     },
     {
          "buildingid":"1503975967",
-         "building":"S5凤凰居5号楼"
+         "building":"S5"
     },
     {
          "buildingid":"1503975980",
-         "building":"S6凤凰居6号楼"
+         "building":"S6"
     },
     {
          "buildingid":"1503975988",
-         "building":"S7凤凰居7号楼"
+         "building":"S7"
     },
     {
          "buildingid":"1503975995",
-         "building":"S8凤凰居8号楼"
+         "building":"S8"
     },
     {
          "buildingid":"1503976004",
-         "building":"S9凤凰居9号楼"
+         "building":"S9"
     },
     {
          "buildingid":"1503976037",
-         "building":"S10凤凰居10号楼"
+         "building":"S10"
     },
     {
          "buildingid":"1599193777",
-         "building":"S11"
+         "building":"S11-13"
     },
     {
+         "buildingid":"1661835249",
+         "building":"B1"
+    },
+                 {
+         "buildingid":"1661835256",
+         "building":"B2"
+    },
+                 {
+         "buildingid":"1693031698",
+         "building":"B9"
+    },
+                 {
          "buildingid":"1693031710",
          "building":"B10"
     }
@@ -69,7 +85,7 @@ def building_to_id(building):
 def query(account, building, room):
     """
     :param account: 6位校园卡账号
-    :param building: 宿舍楼名称, ['T1', 'T3', 'S1一多书院', 'S2从文书院', 'S5凤凰居5号楼', 'S6凤凰居6号楼', 'S7凤凰居7号楼', 'S8凤凰居8号楼', 'S9凤凰居9号楼', 'S10凤凰居10号楼', 'S11', 'B10']
+    :param building: 宿舍楼名称, ['T1', 'T2', 'T3', 'S1', 'S2', 'S5', 'S6', 'S7', 'S8', 'S9', 'S10', 'S11-13', 'B1', 'B10']
     :param room: 宿舍号
     :return: 电余量
     """
