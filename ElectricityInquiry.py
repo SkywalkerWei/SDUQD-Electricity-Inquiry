@@ -79,13 +79,14 @@ def building_to_id(building):
     for _building in BUILDINGS:
         if _building['building'] == building:
             return _building['buildingid']
-    print('building error!')
+    print('ERROR: Wrong building number')
+    input()
     exit(-1)
 
 def query(account, building, room):
     """
     :param account: 6位校园卡账号
-    :param building: 宿舍楼名称, ['T1', 'T2', 'T3', 'S1', 'S2', 'S5', 'S6', 'S7', 'S8', 'S9', 'S10', 'S11-13', 'B1', 'B10']
+    :param building: 宿舍楼名称, ['T1', 'T2', 'T3', 'S1', 'S2', 'S5', 'S6', 'S7', 'S8', 'S9', 'S10', 'S11-13', 'B1', 'B2', 'B9', 'B10']
     :param room: 宿舍号
     :return: 电余量
     """
@@ -106,10 +107,10 @@ def query(account, building, room):
                     "area": "青岛校区",
                     "areaname": "青岛校区"
                 },
-               "building": {
+                "building": {
                      "buildingid": building_to_id(building),
                      "building": building
-               }
+                }
             }
         }, ensure_ascii=False),"funname": "synjones.onecard.query.elec.roominfo","json": "true"
     }
