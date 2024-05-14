@@ -7,7 +7,7 @@
 
 - pip install requests
 - 我使用的是python 3.11，不保证向下兼容
-- 目前应该可以查S1 S2 S5 S6 S7 S8 S9 S10 S11-13 B10 T1 T3
+- 目前应该可以查S1 S2 S5 S6 S7 S8 S9 S10 S11 B10 T1 T3
 
 ## 使用方法
 
