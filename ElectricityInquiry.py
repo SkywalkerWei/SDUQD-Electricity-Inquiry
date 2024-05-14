@@ -55,15 +55,15 @@ BUILDINGS = eval("""
          "buildingid":"1661835249",
          "building":"B1"
     },
-                 {
+    {
          "buildingid":"1661835256",
          "building":"B2"
     },
-                 {
+    {
          "buildingid":"1693031698",
          "building":"B9"
     },
-                 {
+    {
          "buildingid":"1693031710",
          "building":"B10"
     }
