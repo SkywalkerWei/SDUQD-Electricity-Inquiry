@@ -6,7 +6,7 @@
 ## 前置条件
 
 - pip install requests
-- 我使用的是python 3.11，不保证向下兼容
+- 我使用的是python 3.12，不保证向下兼容
 - 目前可查：S1 S2 S5 S6 S7 S8 S9 S10 S11-13 B1 B2 B5 B9 B10 T1 T2 T3
 
 ## 使用方法
