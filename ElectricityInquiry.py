@@ -59,6 +59,10 @@ BUILDINGS = eval("""
          "buildingid":"1661835256",
          "building":"B2"
     },
+     {
+         "buildingid":"1661835273",
+         "building":"B5"
+    },
     {
          "buildingid":"1693031698",
          "building":"B9"
@@ -86,7 +90,7 @@ def building_to_id(building):
 def query(account, building, room):
     """
     :param account: 6位校园卡账号
-    :param building: 宿舍楼名称, ['T1', 'T2', 'T3', 'S1', 'S2', 'S5', 'S6', 'S7', 'S8', 'S9', 'S10', 'S11-13', 'B1', 'B2', 'B9', 'B10']
+    :param building: 宿舍楼名称, ['T1', 'T2', 'T3', 'S1', 'S2', 'S5', 'S6', 'S7', 'S8', 'S9', 'S10', 'S11-13', 'B1', 'B2', 'B5', 'B9', 'B10']
     :param room: 宿舍号
     :return: 电余量
     """
