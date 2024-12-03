@@ -75,8 +75,18 @@ BUILDINGS = eval("""
 """)
 
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Linux; Android 10; SM-G9600 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.198 Mobile Safari/537.36",
+    "User-Agent": "Mozilla/5.0 (Linux; Android 14; 23013RK75C Build/UKQ1.230804.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/131.0.6778.39 Mobile Safari/537.36/Synjones-E-Campus/2.3.24/&cn&/53",
     "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+    "Origin": "https://mcard.sdu.edu.cn",
+    "Referer": "https://mcard.sdu.edu.cn/charge-app/",
+    # "Synjones-Auth": , # 此处需要登录认证信息填充
+    "Sec-Fetch-Site": "same-origin",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Dest": "empty",
+    "Sec-Ch-Ua-Platform": "Android",
+    "Sec-Ch-Ua": '"Android WebView";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    "Sec-Ch-Ua-Mobile": "?1",
+    "Accept": "application/json, text/plain, */*"
 }
 
 def building_to_id(building):
@@ -88,12 +98,21 @@ def building_to_id(building):
     exit(-1)
 
 def query(account, building, room):
+    data=f"feeitemid=410&type=IEC&level=3&campus=%E9%9D%92%E5%B2%9B%E6%A0%A1%E5%8C%BA%26%E9%9D%92%E5%B2%9B%E6%A0%A1%E5%8C%BA&building={building_to_id(building)}&room={room}"
     """
     :param account: 6位校园卡账号
     :param building: 宿舍楼名称, ['T1', 'T2', 'T3', 'S1', 'S2', 'S5', 'S6', 'S7', 'S8', 'S9', 'S10', 'S11-13', 'B1', 'B2', 'B5', 'B9', 'B10']
     :param room: 宿舍号
     :return: 电余量
     """
+    try:
+        response = requests.post('https://mcard.sdu.edu.cn/charge/feeitem/getThirdData', headers=HEADERS, data=data)
+        response.raise_for_status()
+        return json.loads(response.text)['map']['showData']['信息'][8:]
+    except Exception as e:
+        print(e)
+        exit(-1)
+    '''
     data = {
         "jsondata": json.dumps({
             "query_elec_roominfo": {
@@ -116,13 +135,17 @@ def query(account, building, room):
                      "building": building
                 }
             }
-        }, ensure_ascii=False),"funname": "synjones.onecard.query.elec.roominfo","json": "true"
+        }, ensure_ascii=False),"funname": "synjones.xuepay.sdu","json": "true"
     }
+    '''
+    '''
     try:
-        response = requests.post('http://10.100.1.24:8988/web/Common/Tsm.html', headers=HEADERS, data=data, timeout=3)
-        #print(response.text)
-        electricity = json.loads(response.text)['query_elec_roominfo']['errmsg']
-        return electricity[8:]
-    except Exception as e:
-        print(e)
-        exit(-1)
+        # response = requests.post('http://10.100.1.24:8988/web/Common/Tsm.html', headers=HEADERS, data=data, timeout=3)
+        # response = requests.post('http://10.100.1.24:8988/web/common/checkEle.html', headers=HEADERS, data=data, timeout=3)
+        # response = requests.post('http://222.206.1.180', headers=HEADERS, data=data, timeout=3)
+        # response = requests.post('https://222.206.1.213:8755/ppage/service', headers=HEADERS, data=data, timeout=3, verify=False)
+        response = requests.post('https://mcard.sdu.edu.cn/charge/feeitem/getThirdData', headers=HEADERS, data=data, timeout=3)
+        # print(response.text)
+        # electricity = json.loads(response.text)['query_elec_roominfo']['errmsg']
+        return json.loads(response.text)['map']['showdata']['信息'][8:]
+    '''
