@@ -7,6 +7,8 @@
 
 v卡通升级之后新的接口加强了身份验证手段，目前还没有办法解决不登录状态下的查询，而如果需要登录的话本项目的意义性大幅减弱。故本项目无限期暂停更新。
 
+有需要的同学可以使用[SDU-QD-Electricity-Query-Script](https://github.com/Dregen-Yor/SDU-QD-Electricity-Query-Script/)，本项目也参照其做了一些改动，但是未测试运行。
+
 ## 前置条件
 
 - pip install requests
